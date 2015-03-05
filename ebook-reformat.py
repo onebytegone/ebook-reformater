@@ -33,7 +33,7 @@ def generateIOFilePairs(source, output, targetFormat):
    basedir = source.rstrip('/')+'/';
    for f in listdir(basedir):
       fullPath = basedir+f;
-      if isfile(fullPath):
+      if isfile(fullPath) and f[0] != '.':
          fileList.append({
               'source': fullPath,
               'output': generateOutputFilepath(fullPath, output, targetFormat)
