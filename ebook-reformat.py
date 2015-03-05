@@ -25,8 +25,8 @@ def process_ebook(source, output):
 
 
 def generateOutputFilepath(source, output, targetFormat):
-   filename = splitext(basename(source))[0];
-   return output.rstrip('/')+'/'+filename+'.'+targetFormat;
+   filename = splitext(basename(source))[0]
+   return output.rstrip('/')+'/'+filename+'.'+targetFormat
 
 def generateIOFilePairs(source, output, targetFormat):
    fileList = []
