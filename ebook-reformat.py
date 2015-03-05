@@ -8,21 +8,24 @@ from subprocess import call
 # Config
 CLI_PATH = '/Applications/calibre.app/Contents/MacOS/'
 CONVERTER = 'ebook-convert'
+PARAMS = [
+   '--custom-size', '6x8',
+   '--base-font-size', '7',
+   '--font-size-mapping', '7,7,8,10,12,14,16,18'
+]
 
 args = sys.argv
+
 if len(args) < 4:
    print "Error: This needs to be input and output folders and target format to process."
    print "Usage: ebook-reformat {input folder} {output folder} {target format}"
    exit()
 
 
-
-
-
 def process_ebook(source, output):
    print "converting: "+source
-   call([CLI_PATH+CONVERTER, source, output])
-
+   cli_task_args = [CLI_PATH+CONVERTER, source, output] + PARAMS
+   call(cli_task_args)
 
 def generateOutputFilepath(source, output, targetFormat):
    filename = splitext(basename(source))[0]
